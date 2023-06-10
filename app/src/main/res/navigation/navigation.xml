@@ -26,7 +26,9 @@
 
         <action
             android:id="@+id/action_MainFragment_to_DetailsFragment"
-            app:destination="@id/DetailsFragment" >
+            app:destination="@id/DetailsFragment"
+            app:popUpTo="@id/MainFragment"
+            app:popUpToInclusive="false">
 
 
         </action>
@@ -37,11 +39,16 @@
         android:name="com.example.testapp2.DetailsFragment"
         android:label="DetailsFragment"
         tools:layout="@layout/fragment_details"
+        app:popUpTo="@id/MainFragment"
+        app:popUpToInclusive="false"
         >
 
         <action
             android:id="@+id/action_DetailsFragment_to_MainFragment"
-            app:destination="@id/MainFragment" />
+            app:destination="@id/MainFragment"
+            app:popUpTo="@id/MainFragment"
+            app:popUpToInclusive="false"
+            />
     </fragment>
 
 </navigation>

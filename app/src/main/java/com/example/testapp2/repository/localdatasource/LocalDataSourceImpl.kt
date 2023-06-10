@@ -2,7 +2,6 @@ package com.example.testapp2.repository.localdatasource
 
 import com.example.testapp2.room.DataView
 import com.example.testapp2.room.DataViewDao
-import com.example.testapp2.room.DataViewList
 
 class LocalDataSourceImpl(private val dataViewDao: DataViewDao): LocalDataSource {
 
@@ -10,9 +9,18 @@ class LocalDataSourceImpl(private val dataViewDao: DataViewDao): LocalDataSource
         dataViewDao.insertAll(listDataView)
     }
 
-    override fun getListEntities(): List<DataViewList> {
+    override fun getListEntities(): List<DataView> {
         return dataViewDao.getAllEntitys().map{
-            DataViewList(it.uid, it.title, it.detail, it.imageId)
+            DataView(
+                it.uid,
+                it.title,
+                it.detail,
+                it.imageId,
+                it.image2,
+                it.mainTitle,
+                it.firstDescription,
+                it.secondTitle,
+                it.secondDescription)
         }
     }
 
@@ -20,7 +28,8 @@ class LocalDataSourceImpl(private val dataViewDao: DataViewDao): LocalDataSource
         return dataViewDao.getDetailsEntity(id)
     }
 
- /*   override fun getDataViewRoomList(): List<DataView> {
-        return null
-    }*/
+    override fun deleteAllDataView() {
+        dataViewDao.deleteAll()
+    }
+
 }

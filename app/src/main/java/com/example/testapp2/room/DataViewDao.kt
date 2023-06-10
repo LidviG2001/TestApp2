@@ -1,14 +1,11 @@
 package com.example.testapp2.room
 
 import androidx.room.Dao
-import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 
 @Dao
 interface DataViewDao {
-
-
 
     @Query("SELECT * FROM data")
     fun getAllEntitys(): List<DataView>
@@ -19,6 +16,6 @@ interface DataViewDao {
     @Insert
     fun insertAll( data: List<DataView>)
 
-    @Delete
-    fun delete(data: DataView)
+    @Query("DELETE FROM data")
+    fun deleteAll()
 }

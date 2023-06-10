@@ -19,8 +19,12 @@ class MainViewModel(private val repository: Repository): ViewModel() {
         return repository.getDataViewRoom()
     }
 
-    fun getListEntities(): List<DataViewList>{
+    fun getListEntities(): List<DataView>{
         return repository.getListEntities()
+    }
+
+    fun deleteDAtaView(){
+        repository.deleteDataView()
     }
 
 }
